@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>beats</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="listen">
+  <a href="index.html" class="back-link">← back</a>
+  <main id="tracks"></main>
+
+  <script>
+    async function loadTracks() {
+      try {
+        const res = await fetch('beats/manifest.json');
+        const list = await res.json();
+        const main = document.getElementById('tracks');
+        list.forEach(name => {
+          const div = document.createElement('div');
+          div.className = 'track';
+          div.innerHTML = `
+            <div class="track-name">${name}</div>
+            <audio controls src="beats/${encodeURIComponent(name)}" controlsList="nodownload"></audio>
+          `;
+          main.appendChild(div);
+        });
+      } catch (e) {
+        document.getElementById('tracks').innerText = 'No beats yet.';
+      }
+    }
+    loadTracks();
+    document.addEventListener('contextmenu', e => e.preventDefault());
+  </script>
+</body>
+</html>
