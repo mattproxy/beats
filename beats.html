@@ -1,68 +1,56 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Listen — Beats</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>Sir Matt Beats</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      padding: 50px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 3em;
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff;
+    }
+    .beat {
+      margin: 30px 0;
+      border-bottom: 1px solid #555;
+      padding-bottom: 20px;
+    }
+    h2 {
+      font-size: 1.8em;
+      text-shadow: 0 0 5px #fff;
+    }
+    audio {
+      width: 100%;
+      outline: none;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
-  <nav class="topnav">
-    <a class="navitem" href="index.html">HOME</a>
-    <a class="navitem" href="beats.html">BUY MY BEATS</a>
-    <a class="navitem" href="portfolio.html">PORTFOLIO</a>
-    <a class="navitem" href="downloads.html">DOWNLOADS</a>
-  </nav>
+  <h1>Listen to My Beats</h1>
 
-  <main class="beats-list">
-    <h1>Listen Only</h1>
-    <div id="list"></div>
-  </main>
+  <div class="beat">
+    <h2>Swag Merchant</h2>
+    <audio controls>
+      <source src="beats/swag merchant.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
 
-  <script>
-    // ======= EDIT THIS ARRAY: put exact filenames inside your beats/ folder =======
-    const beats = [
-      "beat1.mp3",
-      "beat2.mp3"
-      // add more like "myfirebeat.mp3"
-    ];
-    // ===========================================================================
-    const container = document.getElementById('list');
+  <div class="beat">
+    <h2>Alchemist Type Beat</h2>
+    <audio controls>
+      <source src="beats/alchemist type beat.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
 
-    beats.forEach(name => {
-      const wrapper = document.createElement('div');
-      wrapper.className = 'track';
-
-      const title = document.createElement('div');
-      title.className = 'track-title';
-      title.textContent = name.replace(/[-_\.]/g, ' ').replace(/\.[^/.]+$/, "");
-
-      // Create audio element (no download button if supported)
-      const audio = document.createElement('audio');
-      audio.setAttribute('controls', '');
-      audio.setAttribute('controlsList', 'nodownload'); // hide download button in supported browsers
-      audio.setAttribute('preload', 'none');
-      audio.src = `beats/${encodeURIComponent(name)}`;
-
-      // Prevent right-click on the audio element to reduce easy "Save audio as..."
-      audio.addEventListener('contextmenu', e => e.preventDefault());
-
-      wrapper.appendChild(title);
-      wrapper.appendChild(audio);
-      container.appendChild(wrapper);
-    });
-
-    // Prevent site-wide context menu (makes casual saving harder)
-    document.addEventListener('contextmenu', e => {
-      // allow context menu on inputs if needed
-      if (e.target.tagName.toLowerCase() === 'input' || e.target.tagName.toLowerCase() === 'textarea') return;
-      e.preventDefault();
-    });
-
-    // Optional: stop download via keyboard shortcuts (not foolproof)
-    document.addEventListener('keydown', e => {
-      if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S')) e.preventDefault();
-    });
-  </script>
 </body>
 </html>
+
+
