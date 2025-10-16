@@ -1,37 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>beats</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body class="listen">
-  <a href="index.html" class="back-link">← back</a>
-  <main id="tracks"></main>
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  <script>
-    async function loadTracks() {
-      try {
-        const res = await fetch('beats/manifest.json');
-        const list = await res.json();
-        const main = document.getElementById('tracks');
-        list.forEach(name => {
-          const div = document.createElement('div');
-          div.className = 'track';
-          div.innerHTML = `
-            <div class="track-name">${name}</div>
-            <audio controls src="beats/${encodeURIComponent(name)}" controlsList="nodownload"></audio>
-          `;
-          main.appendChild(div);
-        });
-      } catch (e) {
-        document.getElementById('tracks').innerText = 'No beats yet.';
-      }
-    }
-    loadTracks();
-    document.addEventListener('contextmenu', e => e.preventDefault());
-  </script>
-</body>
-</html>
+/* Fullscreen neon green */
+body {
+  background-color: #39ff14; /* neon green */
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Helvetica, Arial, sans-serif;
+}
 
+/* Center text */
+.center-text {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.center-text:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+/* Listen page layout */
+body.listen {
+  background-color: #39ff14;
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;
+  padding: 60px 20px;
+}
+
+.back-link {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  opacity: 0.8;
+}
+.back-link:hover { opacity: 1; }
+
+#tracks {
+  margin-top: 80px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.track {
+  margin-bottom: 18px;
+}
+
+.track-name {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+audio {
+  width: 100%;
+}
