@@ -1,26 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>buy my art</title>
-<style>
-  body {
-    margin: 0;
-    background-color: #00FF00; /* neon green */
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    text-transform: lowercase;
-    font-weight: bold;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BUY MY ART</title>
+  <style>
+    body {
+      background-color: #39ff14; /* neon green */
+      color: white;
+      font-family: monospace;
+      margin: 0;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #ffffff;
+    }
+
+    .beat {
+      width: 90%;
+      max-width: 700px;
+      border: 1px solid white;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      transition: 0.2s;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .beat:hover {
+      background-color: white;
+      color: #39ff14;
+      transform: scale(1.02);
+    }
+
+    .beat p {
+      margin: 0 0 8px;
+      font-weight: bold;
+    }
+
+    audio {
+      width: 100%;
+    }
+
+    /* hide download button */
+    audio::-internal-media-controls-download-button {
+      display: none;
+    }
+    audio::-webkit-media-controls-enclosure {
+      overflow: hidden;
+    }
+  </style>
 </head>
 <body>
-  buy my art
+  <h1>BUY MY ART</h1>
+
+  <!-- Example beats — replace with your own -->
+  <div class="beat">
+    <p>beat1.mp3</p>
+    <audio controls controlsList="nodownload">
+      <source src="beats/beat1.mp3" type="audio/mpeg" />
+    </audio>
+  </div>
+
+  <div class="beat">
+    <p>beat2.wav</p>
+    <audio controls controlsList="nodownload">
+      <source src="beats/beat2.wav" type="audio/wav" />
+    </audio>
+  </div>
 </body>
 </html>
