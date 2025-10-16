@@ -1,78 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BUY MY ART</title>
+  <meta charset="UTF-8">
+  <title>Sir Matt</title>
   <style>
     body {
-      background-color: #39ff14; /* neon green */
-      color: white;
-      font-family: monospace;
-      margin: 0;
-      padding: 50px;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
     }
-
     h1 {
-      font-size: 3em;
-      margin-bottom: 40px;
-      text-shadow: 0 0 10px #ffffff;
-    }
-
-    .beat {
-      width: 90%;
-      max-width: 700px;
-      border: 1px solid white;
-      border-radius: 8px;
-      padding: 15px;
+      font-size: 4em;
       margin-bottom: 20px;
-      transition: 0.2s;
-      background-color: rgba(255, 255, 255, 0.1);
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff;
     }
-
-    .beat:hover {
-      background-color: white;
-      color: #39ff14;
-      transform: scale(1.02);
+    a.button {
+      display: inline-block;
+      padding: 20px 40px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.5em;
+      border: 2px solid #fff;
+      text-shadow: 0 0 5px #fff;
+      transition: 0.3s;
+      margin-top: 20px;
     }
-
-    .beat p {
-      margin: 0 0 8px;
-      font-weight: bold;
-    }
-
-    audio {
-      width: 100%;
-    }
-
-    /* hide download button */
-    audio::-internal-media-controls-download-button {
-      display: none;
-    }
-    audio::-webkit-media-controls-enclosure {
-      overflow: hidden;
+    a.button:hover {
+      background-color: #fff;
+      color: #000;
+      text-shadow: none;
     }
   </style>
 </head>
 <body>
-  <h1>BUY MY ART</h1>
-
-  <!-- Example beats — replace with your own -->
-  <div class="beat">
-    <p>beat1.mp3</p>
-    <audio controls controlsList="nodownload">
-      <source src="beats/beat1.mp3" type="audio/mpeg" />
-    </audio>
-  </div>
-
-  <div class="beat">
-    <p>beat2.wav</p>
-    <audio controls controlsList="nodownload">
-      <source src="beats/beat2.wav" type="audio/wav" />
-    </audio>
-  </div>
+  <h1>Sir Matt</h1>
+  <a class="button" href="beats.html">Buy My Art</a>
 </body>
 </html>
+
+
